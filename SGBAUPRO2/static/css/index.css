@@ -1,0 +1,130 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(45deg, #002c6e, #0056b3);
+    padding: 15px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: rotate(360deg);
+}
+
+.nav-link {
+    color: #fff;
+    font-size: 1rem;
+    padding: 8px 15px;
+    position: relative;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #ffc107;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #ffc107;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27rgba(255, 255, 255, 0.5)%27 stroke-width%3D%272%27 stroke-linecap%3D%27round%27 stroke-miterlimit%3D%2710%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E');
+}
+
+/* Header Styling */
+.header {
+    background-color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header img {
+    max-width: 150px;
+}
+
+.header h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    color: #002c6e;
+}
+
+.header h2 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+/* Carousel Styling */
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: #002c6e;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #002c6e;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #ffc107;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #fff;
+}

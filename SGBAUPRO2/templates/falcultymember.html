@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duty Certificate - SGBAU</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(to bottom, #e8f5e9, #f3e5f5);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .certificate-container {
+            background-color: #ffffff;
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            max-width: 9in;
+            margin: 30px auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certificate-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .certificate-header {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-size: 24px;
+            color: #151313;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .certificate-subheader {
+            text-align: center;
+            font-weight: bold;
+            font-size: 28px;
+            text-decoration: underline;
+            margin: 15px 0;
+            color: #4CAF50;
+            letter-spacing: 1px;
+        }
+
+        .certificate-content {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+            margin: 20px 0;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        .certificate-content p {
+            margin: 10px 0;
+        }
+
+        .certificate-content strong {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .signature {
+            text-align: right;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .signature img {
+            width: 200px;
+            height: 80px;
+            display: block;
+            margin-bottom: 10px;
+            margin-left: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .signature img:hover {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            text-align: left;
+            font-size: 17px;
+            margin-top: -10px;
+            color: #4CAF50;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .footer span {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .logo {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .logo img {
+            max-height: 70px;
+            animation: rotateIn 2s ease;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotateIn {
+            0% {
+                transform: rotate(-360deg);
+                opacity: 0;
+            }
+            100% {
+                transform: rotate(0);
+                opacity: 1;
+            }
+        }
+
+        @media print {
+            @page {
+                margin: 0;
+            }
+
+            .certificate-container {
+                border: 2px solid #000;
+                padding: 10px;
+                box-shadow: none;
+                width: 100%;
+                height: auto;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .certificate-container:hover,
+            .signature img:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="certificate-container">
+        <!-- Certificate Header with Logo -->
+        <div class="certificate-header">
+            SANT GADGE BABA <br />
+            AMRAVATI UNIVERSITY, AMRAVATI
+        </div>
+
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="{% static 'images/sgbaulogo.png' %}" alt="University Logo">
+        </div>
+
+        <!-- Certificate Subheader -->
+        <div class="certificate-subheader">
+            Duty Certificate
+        </div>
+
+        <!-- Certificate Content -->
+        <div class="certificate-content">
+            <p>This is to certify that</p>
+            <p><strong>Prof./Dr./ {{ CERTNAME }}</strong></p>
+
+            <p>has attended the meeting of <strong></strong> the <br> <strong>{{ MEETINGNAME }}</strong></p>
+            <p>on <strong>{{ MEETINGDATE }}</strong> at the University office.</p>
+        </div>
+
+        <!-- Signature Section -->
+        <div class="signature">
+            {% if SIGNATURE %}
+                <img src="{% static SIGNATURE %}" alt="Signature">
+            {% else %}
+                <p>No signature available</p>
+            {% endif %}
+            <span>Deputy Registrar (Academic)</span><br>
+            <span>Sant Gadge Baba Amravati University</span><br>
+            <div style="font-size: 16px;margin-right:78px;">Amravati.</div>
+
+             <!-- Legal Disclaimer for Digital Signature -->
+        <div style="font-size: 12px; text-align: center; margin-top: 20px; color: #888;">
+        <p><em>This certificate has been digitally signed and is legally valid under applicable digital signature laws and regulations. The digital signature is a secure and verifiable method of confirming the authenticity and integrity of this document.</em></p>
+            </div>
+        </div>
+
+        
+
+        <!-- Date Section in Footer -->
+      <!-- Date Section in Footer -->
+<div class="footer">
+    <span style="font-size: 1.2em; font-weight: bold;">Date: {{ MEETINGDATE }}</span>
+</div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
